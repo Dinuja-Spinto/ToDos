@@ -21,7 +21,7 @@ export class WelcomeComponent {
 
   getWelcomeMsg(){
     //this.service.executeHelloWorldBeanService();
-    console.log(this.service.executeHelloWorldBeanService());
+    console.log(this.service.executeHelloWorldBeanService().subscribe());
   }
 
 }
