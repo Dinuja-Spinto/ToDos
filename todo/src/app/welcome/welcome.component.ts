@@ -20,8 +20,8 @@ export class WelcomeComponent {
   }
 
   getWelcomeMsg(){
-    this.service.executeHelloWorldBeanService();
-    //console.log("get welcome message");
+    //this.service.executeHelloWorldBeanService();
+    console.log(this.service.executeHelloWorldBeanService());
   }
 
 }
