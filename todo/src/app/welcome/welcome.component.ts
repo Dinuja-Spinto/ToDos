@@ -16,15 +16,16 @@ export class WelcomeComponent {
 
   ngOnInit(){
     this.name = this.route.snapshot.params['name']
-    console.log(this.route.snapshot.params['name'])
   }
 
   getWelcomeMsg(){
-    //this.service.executeHelloWorldBeanService();
-    //console.log(this.service.executeHelloWorldBeanService().subscribe());
     this.service.executeHelloWorldBeanService().subscribe(
-      response => this.handleSuccesfullResponse(response)
+      response => this.handleSuccesfullResponse(response),
+      error => this.handleErrorResponse(error)
     );
+  }
+  handleErrorResponse(error: any): void {
+    this.welcomeMsgFromService = error.error.message;
   }
 
   handleSuccesfullResponse(response: HelloWorldBean){

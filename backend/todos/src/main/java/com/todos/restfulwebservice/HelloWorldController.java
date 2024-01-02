@@ -12,7 +12,8 @@ public class HelloWorldController {
 
     @RequestMapping(method = RequestMethod.GET,path="/hello-world-bean")
     public HelloWorldBean helloWorldBean() {
-        return new HelloWorldBean("Hello world");
+        throw new RuntimeException("Error..! Contact support!");
+        //return new HelloWorldBean("Hello world");
     }
 
     @GetMapping(path="/hello-world-bean/{name}")
