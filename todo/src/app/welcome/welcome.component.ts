@@ -9,7 +9,7 @@ import { HelloWorldBean, WelcomeDataService } from '../service/data/welcome-data
 })
 export class WelcomeComponent {
 
-  name =''
+  name ='Dinuja'
   welcomeMsgFromService!: string;
   constructor(private route : ActivatedRoute,
     private service:WelcomeDataService){}
@@ -24,6 +24,14 @@ export class WelcomeComponent {
       error => this.handleErrorResponse(error)
     );
   }
+
+  getWelcomeMsgWithPara(){
+    this.service.executeHelloWorldBeanServicePath(this.name).subscribe(
+      response => this.handleSuccesfullResponse(response),
+      error => this.handleErrorResponse(error)
+    );
+  }
+
   handleErrorResponse(error: any): void {
     this.welcomeMsgFromService = error.error.message;
   }
