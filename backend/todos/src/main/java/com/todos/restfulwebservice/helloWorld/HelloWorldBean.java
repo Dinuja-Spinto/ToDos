@@ -1,4 +1,4 @@
-package com.todos.restfulwebservice;
+package com.todos.restfulwebservice.helloWorld;
 
 public class HelloWorldBean {
     private String message;
