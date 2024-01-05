@@ -1,6 +1,7 @@
 package com.todos.restfulwebservice.todo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,4 +31,12 @@ public class TodoResource {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @PutMapping("/users/{username}/todos/{id}")
+    public ResponseEntity<Todo> updateTodo(@PathVariable String username,@PathVariable long id, @RequestBody Todo todo){
+        Todo todoUpdated = todoService.save(todo);
+        return new ResponseEntity<Todo>(todo, HttpStatus.OK);
+    }
+
+    
 }
