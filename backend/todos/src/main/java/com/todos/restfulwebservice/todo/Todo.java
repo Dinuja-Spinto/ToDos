@@ -1,6 +1,7 @@
 package com.todos.restfulwebservice.todo;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Todo {
     private long id;
@@ -55,5 +56,17 @@ public class Todo {
 
     public void setDone(boolean done) {
         isDone = done;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Todo todo)) return false;
+        return getId() == todo.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 }
