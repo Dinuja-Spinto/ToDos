@@ -22,4 +22,8 @@ export class TodoDataService {
   retreveTodo(username:string,id:any){
     return this.http.get<Todo>(`http://localhost:8081/users/${username}/todos/${id}`);
   }
+
+  updateTodo(username:string,id:any,todo:Todo | undefined){
+    return this.http.put<Todo>(`http://localhost:8081/users/${username}/todos/${id}`,todo);
+  }
 }
