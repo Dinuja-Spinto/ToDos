@@ -21,10 +21,12 @@ export class TodoComponent {
 
   ngOnInit(){
     this.id = this.route.snapshot.params['id'];
-    this.todo = new Todo(1,'',false,new Date());
-    this.todoService.retreveTodo('Dinuja',this.id).subscribe(
-      data=> this.todo = data
-    )
+    this.todo = new Todo(this.id,'',false,new Date());
+    if(this.id != -1){
+      this.todoService.retreveTodo('Dinuja',this.id).subscribe(
+        data=> this.todo = data
+      )
+    }
   }
 
   saveTodo(){

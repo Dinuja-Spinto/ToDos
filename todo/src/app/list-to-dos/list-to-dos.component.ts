@@ -4,7 +4,7 @@ import { Route, Router } from '@angular/router';
 
 export class Todo{
   constructor(
-    public id :number,
+    public id :number|undefined,
     public description : string,
     public done: boolean,
     public targetDate: Date
@@ -54,8 +54,10 @@ message: string | undefined;
   }
 
   updateTodo(id: any){
-    console.log(id+" update");
     this.router.navigate(['todos',id]);
   }
 
+  addTodo(){
+    this.router.navigate(['todos',-1]);
+  }
 }
