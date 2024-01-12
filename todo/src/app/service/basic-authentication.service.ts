@@ -1,10 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import{map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HardcodedAuthenticationService {
+export class BasicAuthenticationService {
 
   constructor(private http: HttpClient) { }
 
@@ -33,7 +34,14 @@ export class HardcodedAuthenticationService {
       Authorization: basicAuthHeaderString
     })
     return this.http.get<AuthenticationBean>(`http://localhost:8081/basicAuth`,
-    {headers});
+    {headers}).pipe(
+      map(
+        data =>{
+          sessionStorage.setItem('authenticaterUser',username);
+          return data;
+        }
+      )
+    );
   }
 
 }
